@@ -66,7 +66,9 @@ python app.py
 - `styles.scss`: SCSS file for defining the styles
 - `database.db`: The SQLite database file, automatically created during the first run of the application
 
+
 ## Application Functionality
+
 
 ### Home Page
 
@@ -78,15 +80,18 @@ python app.py
    - Edit tasks by clicking the "Edit" link next to each task
    - Delete tasks by clicking the "Delete" link
 
+
 ### Edit Task Page
 
 1. The user clicks "Edit" next to a task and is taken to the edit page
 2. The user can change the task content in the input field
 3. After making changes, the user clicks the "Update" button to save the changes
 
+
 ### Deleting Tasks
 
 - The user clicks "Delete" next to a task, and the task is removed from the database
+
 
 ### Flash Messages
 
@@ -95,9 +100,11 @@ Flash messages are used to notify the user about different actions:
 - Task successfully added/updated/deleted
 - Errors, such as trying to submit an empty task
 
+
 ## Styling
 
 The application uses SCSS for styling, which is compiled into CSS. Basic CSS is used to improve the layout and visuals of the forms and buttons.
+
 
 ## Potential Enhancements
 
