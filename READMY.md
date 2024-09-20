@@ -105,4 +105,3 @@ The application uses SCSS for styling, which is compiled into CSS. Basic CSS is 
 - Ability to mark tasks as complete
 - User registration and login for personalized task lists
 
-
