@@ -1,5 +1,9 @@
+*.pyc
+__pycache__/
+instance/
+.env
+venv/
 .idea
 *.iml
-venv/
 ENV/
 env/

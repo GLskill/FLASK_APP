@@ -1,8 +1,9 @@
-body {
+body { 
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: wheat; }
+  background-color: wheat;
+}
 
 .content {
   max-width: 800px;
@@ -11,31 +12,39 @@ body {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center; }
+  text-align: center;
+}
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px; }
+  margin-top: 20px;
+}
 
 table, th, td {
-  border: 1px solid #ddd; }
+  border: 1px solid #ddd;
+}
 
 th, td {
   padding: 10px;
-  text-align: center; }
+  text-align: center;
+}
 
 th {
-  background-color: #f4f4f4; }
+  background-color: #f4f4f4;
+}
 
 .edit-btn, .delete-btn {
   padding: 5px 10px;
   border-radius: 5px;
   text-decoration: none;
-  color: white; }
+  color: white;
+}
 
 .edit-btn {
-  background-color: #007bff; }
+  background-color: #007bff;
+}
 
 .delete-btn {
-  background-color: #dc3545; }
+  background-color: #dc3545;
+}

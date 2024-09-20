@@ -6,11 +6,12 @@ from datetime import datetime, timezone
 
 # My App
 app = Flask(__name__)
-app.secret_key = "your_secret_key"  # Для работы с flash-сообщениями
+app.secret_key = "your_secret_key"
 Scss(app)
 
 # Database configuration
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATION"] = False
 db = SQLAlchemy(app)
 
 
@@ -25,13 +26,17 @@ class MyTask(db.Model):
         return f"Task {self.id}: {self.content}"
 
 
+with app.app_context():
+    db.create_all()
+
+
 # Route for the home page
 @app.route("/", methods=["POST", "GET"])
 def index():
     # Add task
     if request.method == "POST":
         current_task = request.form['content']
-        if not current_task.strip():  # Проверка на пустое поле
+        if not current_task.strip():
             flash("Task content cannot be empty!", "error")
             return redirect("/")
 
@@ -70,7 +75,7 @@ def edit(id: int):
     task = MyTask.query.get_or_404(id)
     if request.method == "POST":
         task.content = request.form['content']
-        if not task.content.strip():  # Проверка на пустое поле
+        if not task.content.strip():
             flash("Task content cannot be empty!", "error")
             return redirect(f"/edit/{id}")
 
@@ -87,6 +92,4 @@ def edit(id: int):
 
 # Run the app
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
     app.run(debug=True)
