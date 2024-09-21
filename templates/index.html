@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>TASK SMASH</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Tasks Smash 2.0</h1>
+
+    <form action="/" method="POST">
+        <input
+            type="text"
+            name="content"
+            id="content"
+            placeholder="Enter a new task"
+            required
+        />
+        <button type="submit">Add Task</button>
+    </form>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <h2>Your Tasks</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Added</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.content }}</td>
+                <td>{{ task.created.strftime("%Y-%m-%d") }}</td>
+                <td>
+                    <a href="/edit/{{ task.id }}" class="edit-btn">Edit</a>
+                    <a href="/delete/{{ task.id }}" class="delete-btn">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
